@@ -20,14 +20,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-//                implementation(project(":core:base"))
-//                implementation(project(":core:common-ui"))
-//                implementation(project(":core:designsystem"))
-//                implementation(project(":core:data"))
-//                implementation(project(":core:localization"))
-//                implementation(project(":core:model"))
-//                implementation(project(":core:screens"))
-
                 testImplementation(kotlin("test"))
                 androidTestImplementation(kotlin("test"))
                 implementation(libs.findLibrary("timber").get())

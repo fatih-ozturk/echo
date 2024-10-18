@@ -10,3 +10,6 @@ indent_style = space
 ij_kotlin_allow_trailing_comma = true
 ij_kotlin_allow_trailing_comma_on_call_site = true
 ij_continuation_indent_size = 4
+
+[*.yml]
+indent_size = 2

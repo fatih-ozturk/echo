@@ -25,7 +25,6 @@
     <style name="Theme.Echo.Splash" parent="Theme.SplashScreen">
         <item name="android:statusBarColor">#FAF8FB</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.Echo</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>

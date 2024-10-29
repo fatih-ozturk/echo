@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "groupName": "Kotlin, KSP and Compose Compiler",
+      "groupSlug": "kotlin",
+      "matchPackageNames": [
+        "com.google.devtools.ksp",
+        "androidx.compose.compiler",
+        "org.jetbrains.kotlin"
+      ]
+    },
+    {
+      "description": "Automatically merge minor and patch-level updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
+      "platformAutomerge": true
+    }
+  ]
+}

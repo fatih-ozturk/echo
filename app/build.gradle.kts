@@ -49,7 +49,7 @@ android {
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -63,31 +63,12 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(libs.androidx.navigation.testing)
-    androidTestImplementation(kotlin("test"))
-    debugImplementation(libs.androidx.compose.ui.testManifest)
-    implementation(libs.timber)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.core.ktx)
+    implementation(projects.core.designsystem)
+
     implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.runtime.tracing)
-    implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.window.manager)
-    implementation(libs.androidx.profileinstaller)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.kotlinx.collections.immutable)
-
-    testImplementation(libs.androidx.navigation.testing)
-    testImplementation(libs.androidx.work.testing)
-    testImplementation(libs.timber)
-
-    testImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.hilt.android.testing)
-    kspTest(libs.hilt.compiler)
 }

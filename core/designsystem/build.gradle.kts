@@ -31,12 +31,8 @@ dependencies {
     api(libs.androidx.compose.runtime)
     api(libs.androidx.compose.ui.tooling.preview)
     api(libs.androidx.compose.ui.util)
-    implementation(libs.kotlinx.collections.immutable)
-    implementation(libs.androidx.core.ktx)
+    api(libs.kotlinx.collections.immutable)
     implementation(libs.coil.kt.compose)
 
-    debugApi(libs.androidx.compose.ui.tooling)
-
-    testImplementation(libs.junit4)
     testImplementation(libs.google.testParameterInjector)
 }

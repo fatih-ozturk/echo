@@ -29,7 +29,8 @@ internal fun Project.configureAndroidCompose(
             implementation(platform(bom))
             androidTestImplementation(platform(bom))
             // Add ComponentActivity to debug manifest
-            debugImplementation(libs.findLibrary("androidx.compose.ui.testManifest").get())
+            implementation(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
+            debugImplementation(libs.findLibrary("androidx-compose-ui-tooling").get())
         }
     }
     with(extensions.getByType<ComposeCompilerGradlePluginExtension>()) {

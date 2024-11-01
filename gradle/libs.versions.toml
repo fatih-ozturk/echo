@@ -32,7 +32,7 @@ kotlinxSerializationJson = "1.7.3"
 kover = "0.8.3"
 ksp = "2.0.21-1.0.26"
 #noinspection GradleDependency not working with ruleset libary
-ktlint = "11.6.1"
+ktlint = "12.1.1"
 ktor = "3.0.1"
 lottieVersion = "6.6.0"
 paging = "3.3.2"

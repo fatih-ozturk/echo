@@ -71,4 +71,7 @@ dependencies {
     implementation(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
+
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.hilt.android.testing)
 }

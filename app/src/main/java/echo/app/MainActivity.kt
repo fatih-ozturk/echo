@@ -15,8 +15,8 @@
  */
 package echo.app
 
-import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import androidx.activity.ComponentActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-@HiltAndroidApp
-class EchoApplication : Application()
+@AndroidEntryPoint
+class MainActivity : ComponentActivity()

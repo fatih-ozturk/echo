@@ -15,6 +15,7 @@
  */
 package echo.app.designsystem
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -33,14 +34,15 @@ open class PaparazziScreenshotTest {
         renderingMode = RenderingMode.SHRINK,
     )
 
-    protected fun snapshot(theme: Theme, content: @Composable () -> Unit) {
+    protected fun snapshot(
+        theme: Theme = Theme.Light,
+        content: @Composable () -> Unit
+    ) {
         paparazzi.snapshot {
             EchoTheme(
                 darkTheme = theme == Theme.Dark,
             ) {
-                Box(
-                    modifier = Modifier.padding(EchoTheme.spacing.spacingMd),
-                ) {
+                Box {
                     content()
                 }
             }

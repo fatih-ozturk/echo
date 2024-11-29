@@ -1,0 +1,40 @@
+name: Paparazzi Screenshot Testing
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'zulu'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Paparazzi Tests
+        run: ./gradlew :app:recordPaparazziDebugTestScreenshotTest
+
+      - name: Run Verify Paparazzi Tests
+        run: ./gradlew :app:verifyPaparazziDebugTestScreenshotTest
+
+      - name: Analyze Paparazzi Results
+        id: paparazzi-result
+        run: |
+          if grep -q "FAILED"; then
+            echo "result=failed" >> $GITHUB_ENV
+          else
+            echo "result=passed" >> $GITHUB_ENV
+          fi

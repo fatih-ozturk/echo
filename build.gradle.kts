@@ -12,5 +12,4 @@ plugins {
     alias(libs.plugins.spotless) apply false
     alias(libs.plugins.kover) apply false
     alias(libs.plugins.paparazzi) apply false
-    alias(libs.plugins.screenshotbot) apply false
 }

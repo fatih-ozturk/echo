@@ -43,7 +43,6 @@ turbine = "1.2.0"
 runner = "1.6.2"
 nlopezComposeRules = "0.4.19"
 paparazzi = "1.3.5"
-screenshotbot = "1.22"
 testParameterInjector = "1.18"
 mockk = "1.13.13"
 androidxTestCore = "1.6.1"
@@ -168,4 +167,3 @@ secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugi
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
-screenshotbot = { id = "io.screenshotbot.plugin", version.ref = "screenshotbot" }

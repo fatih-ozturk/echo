@@ -17,7 +17,6 @@ plugins {
     id("echo.android.library")
     id("echo.android.library.compose")
     id("app.cash.paparazzi")
-    id("io.screenshotbot.plugin")
 }
 
 android {

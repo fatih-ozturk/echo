@@ -37,7 +37,7 @@ class EchoButtonsTest(
         snapshot(theme) {
             Box(
                 modifier = Modifier
-                    .background(EchoTheme.colors.bgPrimary)
+                    .background(EchoTheme.colors.bgSecondary)
                     .padding(EchoTheme.spacing.spacingMd),
             ) {
                 EchoButtonsVariantFactory.Button(variant)

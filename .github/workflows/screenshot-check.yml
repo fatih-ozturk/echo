@@ -24,11 +24,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run Paparazzi Tests
-        run: ./gradlew :app:recordPaparazziDebugTestScreenshotTest
-
       - name: Run Verify Paparazzi Tests
-        run: ./gradlew :app:verifyPaparazziDebugTestScreenshotTest
+        run: ./gradlew verifyPaparazziDebug
 
       - name: Analyze Paparazzi Results
         id: paparazzi-result

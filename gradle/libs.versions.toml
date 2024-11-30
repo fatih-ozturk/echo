@@ -28,7 +28,6 @@ kotlinx-collections-immutable = "0.3.8"
 kotlinxCoroutines = "1.9.0"
 kotlinxDatetime = "0.6.1"
 kotlinxSerializationJson = "1.7.3"
-kover = "0.8.3"
 ksp = "2.1.0-1.0.29"
 #noinspection GradleDependency not working with ruleset libary
 ktlint = "11.6.1"
@@ -152,7 +151,6 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 ktlint-gradlePlugin = { group = "org.jlleitschuh.gradle", name = "ktlint-gradle", version.ref = "ktlint" }
 spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
-kover-gradlePlugin = { group = "org.jetbrains.kotlinx.kover", name = "org.jetbrains.kotlinx.kover.gradle.plugin", version.ref = "kover" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -165,5 +163,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }

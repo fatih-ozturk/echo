@@ -25,7 +25,6 @@ dependencies {
     compileOnly(libs.spotless.gradlePlugin)
     compileOnly(libs.ktlint.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
-    compileOnly(libs.kover.gradlePlugin)
 }
 
 gradlePlugin {
@@ -73,10 +72,6 @@ gradlePlugin {
         register("kotlinSerialization") {
             id = "echo.kotlin.serialization"
             implementationClass = "KotlinSerializationConventionPlugin"
-        }
-        register("kotlinKover") {
-            id = "echo.kotlin.kover"
-            implementationClass = "KotlinKoverConventionPlugin"
         }
         register("jvmLibrary") {
             id = "echo.jvm.library"

@@ -19,7 +19,6 @@ plugins {
     id("echo.hilt")
     id("echo.spotless")
     id("echo.detekt")
-    id("echo.kotlin.kover")
 }
 
 android {

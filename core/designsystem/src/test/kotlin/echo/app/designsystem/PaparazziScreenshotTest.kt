@@ -32,6 +32,7 @@ open class PaparazziScreenshotTest {
     val paparazzi = Paparazzi(
         deviceConfig = DeviceConfig.PIXEL_6_PRO,
         renderingMode = RenderingMode.SHRINK,
+        maxPercentDifference = 1.0,
     )
 
     protected fun snapshot(

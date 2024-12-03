@@ -738,7 +738,7 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: ''
-    ignoreAnnotated: ['Preview','EchoPreviews']
+    ignoreAnnotated: ['Preview','ChromaPreviews']
   UnusedPrivateProperty:
     active: true
   UseAnyOrNoneInsteadOfFind:
@@ -786,7 +786,7 @@ style:
 Compose:
   CompositionLocalAllowlist:
     active: true
-    allowedCompositionLocals: [ LocalEchoColors,LocalEchoShapes,LocalEchoTypographies,LocalEchoSpacing ]
+    allowedCompositionLocals: [ LocalChromaColors,LocalChromaShapes,LocalChromaTypographies,LocalChromaSpacing ]
   ContentEmitterReturningValues:
     active: true
   DefaultsVisibility:

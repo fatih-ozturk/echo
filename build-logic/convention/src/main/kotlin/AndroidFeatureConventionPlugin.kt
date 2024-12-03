@@ -12,7 +12,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("echo.android.library")
-                apply("echo.android.hilt")
+                apply("echo.hilt")
                 apply("echo.kotlin.serialization")
                 apply("echo.spotless")
                 apply("echo.ktlint")

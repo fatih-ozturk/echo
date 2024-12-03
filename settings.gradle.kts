@@ -22,4 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Echo"
 include(":app")
-include(":core:designsystem")
+include(":designsystem:chroma")
+include(":designsystem:chroma-icons")

@@ -62,7 +62,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.designsystem)
+    implementation(projects.designsystem.chroma)
+    implementation(projects.designsystem.chromaIcons)
 
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)

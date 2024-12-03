@@ -16,13 +16,13 @@ class HiltConventionPlugin : Plugin<Project> {
                     pluginManager.apply("dagger.hilt.android.plugin")
                     dependencies {
                         implementation(libs.findLibrary("hilt.android").get())
+                        kspAndroidTest(libs.findLibrary("hilt.compiler").get())
                     }
                 }
             }
 
             dependencies {
                 ksp(libs.findLibrary("hilt.compiler").get())
-                kspAndroidTest(libs.findLibrary("hilt.compiler").get())
                 kspTest(libs.findLibrary("hilt.compiler").get())
             }
         }

@@ -16,7 +16,7 @@ class AndroidSpotlessConventionPlugin : Plugin<Project> {
                     targetExclude("**/build/**/*.kt")
                     licenseHeaderFile(
                         rootProject.file("$rootDir/spotless/copyright.kt"),
-                        "^(package|object|import|interface)",
+                        "^(package|object|import|interface|@)",
                     )
                 }
 

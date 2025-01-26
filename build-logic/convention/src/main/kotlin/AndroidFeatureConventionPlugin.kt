@@ -15,13 +15,13 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("echo.hilt")
                 apply("echo.kotlin.serialization")
                 apply("echo.spotless")
-                apply("echo.ktlint")
                 apply("echo.detekt")
             }
 
             dependencies {
-                testImplementation(kotlin("test"))
-                androidTestImplementation(kotlin("test"))
+                implementation(project(":core:domain"))
+                implementation(project(":core:presentation"))
+
                 implementation(libs.findLibrary("timber").get())
                 implementation(libs.findLibrary("coil.kt.compose").get())
 
@@ -32,6 +32,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
                 implementation(libs.findLibrary("kotlinx.coroutines.android").get())
                 implementation(libs.findLibrary("kotlinx.collections.immutable").get())
+
+                testImplementation(kotlin("test"))
+                androidTestImplementation(kotlin("test"))
             }
         }
     }

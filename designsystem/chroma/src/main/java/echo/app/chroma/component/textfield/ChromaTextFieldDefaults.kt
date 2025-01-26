@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ object ChromaTextFieldDefaults {
         errorHintColor: Color = ChromaTheme.colors.textErrorPrimary,
         trailingIconColor: Color = ChromaTheme.colors.fgQuinary,
         leadingIconColor: Color = ChromaTheme.colors.fgQuarterary,
-        errorIconColor: Color = ChromaTheme.colors.fgErrorSecondary,
+        errorIconColor: Color = ChromaTheme.colors.fgErrorSecondary
     ): ChromaTextFieldColors = remember(
         textColor,
         labelTextColor,
@@ -57,7 +57,7 @@ object ChromaTextFieldDefaults {
         errorHintColor,
         trailingIconColor,
         leadingIconColor,
-        errorIconColor,
+        errorIconColor
     ) {
         ChromaTextFieldColors(
             textColor = textColor,
@@ -76,7 +76,7 @@ object ChromaTextFieldDefaults {
             errorHintColor = errorHintColor,
             trailingIconColor = trailingIconColor,
             leadingIconColor = leadingIconColor,
-            errorIconColor = errorIconColor,
+            errorIconColor = errorIconColor
         )
     }
 }

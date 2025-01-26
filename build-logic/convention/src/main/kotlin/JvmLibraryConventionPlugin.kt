@@ -9,7 +9,6 @@ class JvmLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.jvm")
                 apply("echo.kotlin.serialization")
                 apply("echo.spotless")
-                apply("echo.ktlint")
                 apply("echo.detekt")
             }
             configureKotlinJvm()

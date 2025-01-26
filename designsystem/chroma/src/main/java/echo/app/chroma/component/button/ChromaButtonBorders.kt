@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import echo.app.chroma.tokens.ChromaTheme
 @Immutable
 data class ButtonBorders(
     val stroke: BorderStroke? = null,
-    val disabled: BorderStroke? = stroke,
+    val disabled: BorderStroke? = stroke
 )
 
 object ChromaButtonBorders {
@@ -35,15 +35,15 @@ object ChromaButtonBorders {
     fun secondaryGray(
         width: Dp = 1.dp,
         strokeColor: Color = ChromaTheme.colors.buttonSecondaryBorder,
-        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle,
+        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle
     ) = remember(
         width,
         strokeColor,
-        disabledColor,
+        disabledColor
     ) {
         ButtonBorders(
             stroke = BorderStroke(width, strokeColor),
-            disabled = BorderStroke(width, disabledColor),
+            disabled = BorderStroke(width, disabledColor)
         )
     }
 
@@ -51,15 +51,15 @@ object ChromaButtonBorders {
     fun secondaryColor(
         width: Dp = 1.dp,
         strokeColor: Color = ChromaTheme.colors.buttonSecondaryColorBorder,
-        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle,
+        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle
     ) = remember(
         width,
         strokeColor,
-        disabledColor,
+        disabledColor
     ) {
         ButtonBorders(
             stroke = BorderStroke(width, strokeColor),
-            disabled = BorderStroke(width, disabledColor),
+            disabled = BorderStroke(width, disabledColor)
         )
     }
 
@@ -67,15 +67,15 @@ object ChromaButtonBorders {
     fun secondaryDestructive(
         width: Dp = 1.dp,
         strokeColor: Color = ChromaTheme.colors.buttonSecondaryErrorBorder,
-        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle,
+        disabledColor: Color = ChromaTheme.colors.borderDisabledSubtle
     ) = remember(
         width,
         strokeColor,
-        disabledColor,
+        disabledColor
     ) {
         ButtonBorders(
             stroke = BorderStroke(width, strokeColor),
-            disabled = BorderStroke(width, disabledColor),
+            disabled = BorderStroke(width, disabledColor)
         )
     }
 

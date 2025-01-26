@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,20 +25,20 @@ import androidx.compose.runtime.remember
 @Composable
 fun ChromaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     val colorScheme = if (darkTheme) darkColors else lightColors
     ProvideChromaResources(
         typography = chromaTypography,
         colors = colorScheme,
         shapes = chromaShapes,
-        spacing = chromaSpacing,
+        spacing = chromaSpacing
     ) {
         MaterialTheme(
             colorScheme = colorScheme.asMaterial3Colors(),
             typography = mdTypography,
             shapes = mdShapes,
-            content = content,
+            content = content
         )
     }
 }
@@ -49,7 +49,7 @@ fun ProvideChromaResources(
     colors: ChromaColors,
     shapes: ChromaShapes,
     spacing: ChromaSpacing,
-    content: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     val colorPalette = remember { colors }
     colorPalette.update(colors)
@@ -58,7 +58,7 @@ fun ProvideChromaResources(
         LocalChromaColors provides colorPalette,
         LocalChromaShapes provides shapes,
         LocalChromaSpacing provides spacing,
-        LocalChromaContentColor provides colorPalette.fgPrimary,
+        LocalChromaContentColor provides colorPalette.fgPrimary
     ) {
         ProvideTextStyle(value = typography.displayMd, content = content)
     }

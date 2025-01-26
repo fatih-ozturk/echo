@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ fun ChromaText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    style: TextStyle = LocalTextStyle.current,
+    style: TextStyle = LocalTextStyle.current
 ) {
     ChromaText(
         AnnotatedString(text),
@@ -74,7 +74,7 @@ fun ChromaText(
         maxLines,
         minLines,
         persistentMapOf(),
-        onTextLayout,
+        onTextLayout
     )
 }
 
@@ -97,7 +97,7 @@ fun ChromaText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     inlineContent: ImmutableMap<String, InlineTextContent> = persistentMapOf(),
-    onTextLayout: (TextLayoutResult) -> Unit = {},
+    onTextLayout: (TextLayoutResult) -> Unit = {}
 ) {
     val textColor =
         color.takeOrElse {
@@ -116,8 +116,8 @@ fun ChromaText(
                 fontFamily = fontFamily,
                 textDecoration = textDecoration,
                 fontStyle = fontStyle,
-                letterSpacing = letterSpacing,
-            ),
+                letterSpacing = letterSpacing
+            )
         )
     BasicText(
         text,
@@ -128,6 +128,6 @@ fun ChromaText(
         softWrap,
         maxLines,
         minLines,
-        inlineContent,
+        inlineContent
     )
 }

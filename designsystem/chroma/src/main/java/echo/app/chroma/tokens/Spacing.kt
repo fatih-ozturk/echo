@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ data class ChromaSpacing(
     val spacing8Xl: Dp,
     val spacing9Xl: Dp,
     val spacing10Xl: Dp,
-    val spacing11Xl: Dp,
+    val spacing11Xl: Dp
 )
 
 val chromaSpacing = ChromaSpacing(
@@ -58,7 +58,7 @@ val chromaSpacing = ChromaSpacing(
     spacing8Xl = 80.dp,
     spacing9Xl = 96.dp,
     spacing10Xl = 128.dp,
-    spacing11Xl = 160.dp,
+    spacing11Xl = 160.dp
 )
 
 internal val LocalChromaSpacing =

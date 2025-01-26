@@ -32,6 +32,3 @@ internal fun DependencyHandler.coreLibraryDesugaring(dependencyNotation: Any): D
 
 internal fun DependencyHandler.detektPlugins(dependencyNotation: Any): Dependency? =
     add("detektPlugins", dependencyNotation)
-
-internal fun DependencyHandler.ktlintRuleset(dependencyNotation: Any): Dependency? =
-    add("ktlintRuleset", dependencyNotation)

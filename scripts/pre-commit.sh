@@ -5,7 +5,7 @@ echo "Running git pre-commit hook. Running Static analysis... "
 echo "*********************************************************"
 
 OUTPUT="/tmp/analysis-result"
-./gradlew ktlintCheck detekt spotlessCheck --daemon > ${OUTPUT}
+./gradlew detekt spotlessCheck --daemon > ${OUTPUT}
 EXIT_CODE=$?
 
 if [ ${EXIT_CODE} -ne 0 ]; then
@@ -14,8 +14,7 @@ if [ ${EXIT_CODE} -ne 0 ]; then
     echo "*********************************************"
     echo "            Static Analysis Failed           "
     echo "  Please fix the above issues before commit  "
-    echo "          Run ./gradlew ktlintFormat         "
-    echo "    or Run ./gradlew spotlessApply to fix    "
+    echo "       Run ./gradlew spotlessApply to fix    "
     echo "*********************************************"
     exit ${EXIT_CODE}
 else

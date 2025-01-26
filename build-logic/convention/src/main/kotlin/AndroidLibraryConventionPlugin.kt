@@ -18,7 +18,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("echo.kotlin.serialization")
                 apply("echo.spotless")
-                apply("echo.ktlint")
                 apply("echo.detekt")
             }
 

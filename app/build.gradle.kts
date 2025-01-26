@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,11 @@
 plugins {
     id("echo.android.application")
     id("echo.android.application.compose")
+    id("echo.android.room")
     id("echo.hilt")
     id("echo.spotless")
     id("echo.detekt")
+    id("echo.dependencyGuard")
 }
 
 android {
@@ -40,8 +42,6 @@ android {
         debug {
             isMinifyEnabled = false
             isDebuggable = true
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
         }
         release {
             isMinifyEnabled = true
@@ -64,13 +64,30 @@ android {
 dependencies {
     implementation(projects.designsystem.chroma)
     implementation(projects.designsystem.chromaIcons)
+    implementation(projects.core.presentation)
+    implementation(projects.core.data)
+    implementation(projects.core.network)
+    implementation(projects.core.database)
+    implementation(projects.featureSplash.presentation)
+    implementation(projects.featureAuthentication.presentation)
+    implementation(projects.featureAuthentication.data)
+    implementation(projects.featureAuthentication.domain)
+    implementation(projects.featureHome.presentation)
+    implementation(projects.featureHome.data)
+    implementation(projects.featureHome.domain)
+    implementation(projects.authmanager.data)
+    implementation(projects.authmanager.domain)
 
+    implementation(libs.ktor.logging)
+    implementation(libs.timber)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.runtime.tracing)
+    runtimeOnly(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.room.ktx)
 
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.hilt.android.testing)

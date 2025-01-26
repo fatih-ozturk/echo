@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ fun ChromaIcon(
     painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    tint: Color = LocalChromaContentColor.current,
+    tint: Color = LocalChromaContentColor.current
 ) {
     val colorFilter = remember(tint) {
         if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
@@ -40,7 +40,7 @@ fun ChromaIcon(
         painter = painter,
         contentDescription = contentDescription,
         modifier = modifier.defaultSizeFor(painter),
-        colorFilter = colorFilter,
+        colorFilter = colorFilter
     )
 }
 
@@ -49,7 +49,7 @@ private fun Modifier.defaultSizeFor(painter: Painter) = this.then(
         Modifier.size(ChromaIconDefaults.IconSize)
     } else {
         Modifier
-    },
+    }
 )
 
 private fun Size.isInfinite() = width.isInfinite() && height.isInfinite()

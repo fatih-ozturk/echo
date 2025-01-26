@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -171,7 +171,7 @@ class ChromaColors(
     buttonSecondaryErrorBg: Color,
     buttonSecondaryErrorFg: Color,
     buttonSecondaryErrorBorder: Color,
-    buttonTertiaryErrorFg: Color,
+    buttonTertiaryErrorFg: Color
 ) {
     var textPrimary by mutableStateOf(textPrimary)
         private set
@@ -564,7 +564,7 @@ val lightColors = ChromaColors(
     buttonSecondaryErrorBg = ChromaPalette.white,
     buttonSecondaryErrorFg = ChromaPalette.error700,
     buttonSecondaryErrorBorder = ChromaPalette.error300,
-    buttonTertiaryErrorFg = ChromaPalette.error700,
+    buttonTertiaryErrorFg = ChromaPalette.error700
 )
 
 val darkColors = ChromaColors(
@@ -666,10 +666,10 @@ val darkColors = ChromaColors(
     buttonSecondaryErrorBg = ChromaPalette.error950,
     buttonSecondaryErrorFg = ChromaPalette.error200,
     buttonSecondaryErrorBorder = ChromaPalette.error800,
-    buttonTertiaryErrorFg = ChromaPalette.error300,
+    buttonTertiaryErrorFg = ChromaPalette.error300
 )
 
-@Suppress("DEPRECATION") // TODO: Fix
+@Suppress("DEPRECATION")
 fun ChromaColors.asMaterial3Colors() = ColorScheme(
     primary = this.bgBrandSolid,
     onPrimary = this.fgWhite,
@@ -699,7 +699,7 @@ fun ChromaColors.asMaterial3Colors() = ColorScheme(
     onErrorContainer = this.bgErrorPrimary,
     outline = this.borderPrimary,
     outlineVariant = this.borderSecondary,
-    scrim = this.borderBrand,
+    scrim = this.borderBrand
 )
 
 internal val LocalChromaColors = compositionLocalOf<ChromaColors> { error("No Color provided!") }

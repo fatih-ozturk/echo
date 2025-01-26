@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ data class ChromaShapes(
     val radiusXxl: RoundedCornerShape,
     val radius3xl: RoundedCornerShape,
     val radius4xl: RoundedCornerShape,
-    val radiusFull: RoundedCornerShape,
+    val radiusFull: RoundedCornerShape
 )
 
 val chromaShapes = ChromaShapes(
@@ -47,7 +47,7 @@ val chromaShapes = ChromaShapes(
     radiusXxl = RoundedCornerShape(16.dp),
     radius3xl = RoundedCornerShape(20.dp),
     radius4xl = RoundedCornerShape(24.dp),
-    radiusFull = RoundedCornerShape(9999.dp),
+    radiusFull = RoundedCornerShape(9999.dp)
 )
 
 internal val LocalChromaShapes = compositionLocalOf<ChromaShapes> { error("No Shapes provided") }
@@ -57,5 +57,5 @@ val mdShapes = Shapes(
     small = chromaShapes.radiusSm,
     medium = chromaShapes.radiusMd,
     large = chromaShapes.radiusLg,
-    extraLarge = chromaShapes.radiusXl,
+    extraLarge = chromaShapes.radiusXl
 )

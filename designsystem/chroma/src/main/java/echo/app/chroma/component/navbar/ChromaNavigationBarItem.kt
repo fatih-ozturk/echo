@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Fatih OZTURK
+ * Copyright 2025 Fatih OZTURK
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import androidx.compose.ui.layout.Layout
 fun ChromaNavigationBarItem(
     onClick: () -> Unit,
     icon: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
@@ -37,9 +37,9 @@ fun ChromaNavigationBarItem(
             .clickable(
                 onClick = onClick,
                 indication = null,
-                interactionSource = remember { MutableInteractionSource() },
+                interactionSource = remember { MutableInteractionSource() }
             ),
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         Layout(
             content = icon,
@@ -53,16 +53,16 @@ fun ChromaNavigationBarItem(
 
                 layout(
                     width = constraints.maxWidth,
-                    height = constraints.maxHeight,
+                    height = constraints.maxHeight
                 ) {
                     placeables.forEach { placeable ->
                         placeable.placeRelative(
                             x = (constraints.maxWidth - placeable.width) / 2,
-                            y = (constraints.maxHeight - placeable.height) / 2,
+                            y = (constraints.maxHeight - placeable.height) / 2
                         )
                     }
                 }
-            },
+            }
         )
     }
 }

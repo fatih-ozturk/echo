@@ -27,9 +27,6 @@ jobs:
       - name: Check spotless
         run: ./gradlew spotlessCheck
 
-      - name: Check static
-        run: ./gradlew ktlintCheck
-
       - name: Check detekt
         run: ./gradlew detekt
 

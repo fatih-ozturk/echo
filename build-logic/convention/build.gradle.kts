@@ -23,8 +23,8 @@ dependencies {
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.detekt.gradlePlugin)
     compileOnly(libs.spotless.gradlePlugin)
-    compileOnly(libs.ktlint.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.dependencyGuard.gradlePlugin)
 }
 
 gradlePlugin {
@@ -65,10 +65,6 @@ gradlePlugin {
             id = "echo.spotless"
             implementationClass = "AndroidSpotlessConventionPlugin"
         }
-        register("androidKtlint") {
-            id = "echo.ktlint"
-            implementationClass = "AndroidKtlintConventionPlugin"
-        }
         register("kotlinSerialization") {
             id = "echo.kotlin.serialization"
             implementationClass = "KotlinSerializationConventionPlugin"
@@ -76,6 +72,10 @@ gradlePlugin {
         register("jvmLibrary") {
             id = "echo.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
+        }
+        register("dependencyGuard") {
+            id = "echo.dependencyGuard"
+            implementationClass = "DependencyGuardPlugin"
         }
     }
 }

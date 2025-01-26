@@ -59,6 +59,11 @@ android {
             excludes.add("META-INF/LICENSE-notice.md")
         }
     }
+
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+        arg("room.generateKotlin", "true")
+    }
 }
 
 dependencies {

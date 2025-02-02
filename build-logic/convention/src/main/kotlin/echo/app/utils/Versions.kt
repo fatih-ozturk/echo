@@ -13,19 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://jitpack.io")
-        maven("https://plugins.gradle.org/m2/")
-    }
-    versionCatalogs {
-        create("libs") {
-            from(files("../gradle/libs.versions.toml"))
-        }
-    }
-}
-rootProject.name = "BuildLogic"
+package echo.app.utils
 
-include(":convention")
+object Versions {
+    const val COMPILE_SDK = 35
+    const val MIN_SDK = 26
+    const val TARGET_SDK = 35
+}

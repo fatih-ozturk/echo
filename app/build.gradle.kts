@@ -14,13 +14,7 @@
  * limitations under the License.
  */
 plugins {
-    id("echo.android.application")
     id("echo.android.application.compose")
-    id("echo.android.room")
-    id("echo.hilt")
-    id("echo.spotless")
-    id("echo.detekt")
-    id("echo.dependencyGuard")
 }
 
 android {
@@ -32,32 +26,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "echo.app.EchoTestRunner"
-    }
-
-    buildFeatures {
-        buildConfig = true
-    }
-
-    buildTypes {
-        debug {
-            isMinifyEnabled = false
-            isDebuggable = true
-        }
-        release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
-        }
-    }
-
-    packaging {
-        resources {
-            excludes.add("META-INF/LICENSE.md")
-            excludes.add("META-INF/LICENSE-notice.md")
-        }
     }
 
     ksp {

@@ -1,11 +1,21 @@
-package echo.app
+/*
+ * Copyright 2025 Fatih OZTURK
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package echo.app.utils
 
-import echo.app.utils.libs
 import com.android.build.api.dsl.CommonExtension
-import echo.app.utils.androidTestImplementation
-import echo.app.utils.debugImplementation
-import echo.app.utils.implementation
-import echo.app.utils.testImplementation
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.dependencies
@@ -28,7 +38,6 @@ internal fun Project.configureAndroidCompose(
             val bom = libs.findLibrary("androidx-compose-bom").get()
             implementation(platform(bom))
             androidTestImplementation(platform(bom))
-            // Add ComponentActivity to debug manifest
             implementation(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
             debugImplementation(libs.findLibrary("androidx-compose-ui-tooling").get())
         }
@@ -48,7 +57,7 @@ internal fun Project.configureAndroidCompose(
 
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
-            freeCompilerArgs.add("-opt-in=androidx.compose.foundation.ExperimentalFoundationApi")
+            optIn.add("androidx.compose.foundation.ExperimentalFoundationApi")
         }
     }
 }

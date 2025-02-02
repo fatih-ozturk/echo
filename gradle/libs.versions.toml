@@ -24,6 +24,7 @@ hiltExt = "1.2.0"
 junit4 = "4.13.2"
 kotest = "5.9.1"
 kotlin = "2.1.0"
+kotlinReflect = "2.1.0"
 kotlinx-collections-immutable = "0.3.8"
 kotlinxCoroutines = "1.10.1"
 kotlinxDatetime = "0.6.1"
@@ -47,6 +48,7 @@ androidxTestExt = "1.2.1"
 androidxTestRules = "1.6.1"
 robolectric = "4.14.1"
 dependencyGuard = "0.5.0"
+konsist = "0.17.3"
 
 [libraries]
 # Compose
@@ -116,6 +118,7 @@ junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 kotest = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
 kotest-framework-engine = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
 kotest-runner-junit = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+konsist = { group = "com.lemonappdev", name = "konsist", version.ref = "konsist" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
@@ -136,14 +139,12 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+
 # Linters
 detekt-ruleset-compose = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "nlopezComposeRules" }
 
 # Logging
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
-
-# Utils
-android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 compose-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }

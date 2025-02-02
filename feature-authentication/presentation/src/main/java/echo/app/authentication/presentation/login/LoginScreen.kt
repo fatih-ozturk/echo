@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -50,6 +51,7 @@ import echo.app.chroma.component.textfield.ChromaTextField
 import echo.app.chroma.tokens.ChromaTheme
 import echo.app.core.presentation.EventsEffect
 import echo.app.core.presentation.components.ChromaBasicAlertDialog
+import echo.app.core.presentation.components.ChromaLoadingDialog
 
 @Composable
 fun LoginScreen(
@@ -74,13 +76,6 @@ fun LoginScreen(
         }
     }
 
-    LoginScreenDialogs(
-        dialogState = state.dialogState,
-        onDismissRequest = {
-            viewModel.trySendAction(LoginAction.DialogDismiss)
-        }
-    )
-
     LoginScreen(
         state = state,
         actions = LoginScreen.Actions(
@@ -89,6 +84,9 @@ fun LoginScreen(
             },
             onDomainChanged = {
                 viewModel.trySendAction(LoginAction.OnDomainChanged(it))
+            },
+            onDialogDismiss = {
+                viewModel.trySendAction(LoginAction.DialogDismiss)
             }
         )
     )
@@ -100,6 +98,13 @@ private fun LoginScreen(
     actions: LoginScreen.Actions
 ) {
     val focusManager = LocalFocusManager.current
+
+    LoginScreenDialogs(
+        dialogState = state.dialogState,
+        onDismissRequest = {
+            actions.onDialogDismiss()
+        }
+    )
 
     Box(
         modifier = Modifier
@@ -179,13 +184,18 @@ fun LoginScreenDialogs(
     dialogState: LoginState.DialogState?,
     onDismissRequest: () -> Unit
 ) {
-    when(dialogState){
+    when (dialogState) {
         is LoginState.DialogState.Error -> {
             ChromaBasicAlertDialog(
                 message = dialogState.message,
                 onDismissRequest = onDismissRequest
             )
         }
+
+        LoginState.DialogState.Loading -> {
+            ChromaLoadingDialog()
+        }
+
         else -> Unit
     }
 }
@@ -194,12 +204,14 @@ private object LoginScreen {
 
     data class Actions(
         val onLoginClicked: () -> Unit,
-        val onDomainChanged: (domain: String) -> Unit
+        val onDomainChanged: (domain: String) -> Unit,
+        val onDialogDismiss: () -> Unit
     ) {
         companion object {
             val EMPTY = Actions(
                 onLoginClicked = {},
-                onDomainChanged = {}
+                onDomainChanged = {},
+                onDialogDismiss = {},
             )
         }
     }

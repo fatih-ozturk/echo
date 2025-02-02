@@ -48,6 +48,7 @@ class LoginViewModel @Inject constructor(
     private fun handleLoginResult(
         loginResult: Either<AuthorizationException, AuthorizationResponse>
     ) {
+        dialogDismiss()
         loginResult.onRight {
             it.code
                 .onSome { code ->
@@ -82,6 +83,7 @@ class LoginViewModel @Inject constructor(
         val validationResult = validateDomainUseCase(domain = currentState.domainInputState.value)
 
         validationResult.onRight {
+            showDialogLoading()
             getApplicationCredentials()
         }.onLeft { error ->
             setState {
@@ -125,6 +127,10 @@ class LoginViewModel @Inject constructor(
     private fun showDialogError(message: String) {
         setState { copy(dialogState = LoginState.DialogState.Error(message)) }
     }
+
+    private fun showDialogLoading() {
+        setState { copy(dialogState = LoginState.DialogState.Loading) }
+    }
 }
 
 data class LoginState(
@@ -134,6 +140,7 @@ data class LoginState(
 ) {
     sealed interface DialogState {
         data class Error(val message: String) : DialogState
+        data object Loading : DialogState
     }
 }
 

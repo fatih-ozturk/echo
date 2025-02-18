@@ -19,8 +19,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import echo.app.BuildConfig
 import echo.app.account.api.SessionRepository
+import echo.app.appconfig.api.AppConfig
 import echo.app.network.Mastodon
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -36,6 +36,7 @@ internal object NetworkModule {
     @Singleton
     internal fun provideMastodon(
         sessionRepository: SessionRepository,
+        appConfig: AppConfig
     ): Mastodon {
         return Mastodon {
             userAuthentication {
@@ -47,7 +48,7 @@ internal object NetworkModule {
                 }
             }
             httpClientConfig {
-                if (BuildConfig.DEBUG) {
+                if (appConfig.isDebug) {
                     install(Logging) {
                         logger = object : Logger {
                             override fun log(message: String) {

@@ -21,7 +21,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import echo.app.BuildConfig
 import echo.app.account.api.SessionRepository
-import echo.app.appconfig.api.AppConfig
 import echo.app.network.Mastodon
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger

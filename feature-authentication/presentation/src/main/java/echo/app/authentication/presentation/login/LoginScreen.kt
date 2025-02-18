@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import echo.app.authentication.presentation.R
-import echo.app.authentication.presentation.login.auth.LoginActivityResultContract
+import echo.app.authentication.presentation.login.auth.model.LoginActivityResultContract
 import echo.app.chroma.component.button.ChromaButtons
 import echo.app.chroma.component.text.ChromaText
 import echo.app.chroma.component.textfield.ChromaTextField

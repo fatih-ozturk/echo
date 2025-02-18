@@ -15,13 +15,27 @@
  */
 package echo.app.home.presentation
 
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import echo.app.account.api.AccountRepository
 import echo.app.core.presentation.BaseViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor() : BaseViewModel<HomeState, HomeAction, HomeEffect>(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val accountRepository: AccountRepository
+) : BaseViewModel<HomeState, HomeAction, HomeEffect>(
     initialState = HomeState()
 ) {
     override fun handleAction(action: HomeEffect) = Unit
+
+    init {
+        viewModelScope.launch {
+            val account = accountRepository.getPrimaryAccount()
+            accountRepository.getAccount(accountId = account.getOrNull()?.accountId.orEmpty())
+        }
+    }
 }
 
 data class HomeState(

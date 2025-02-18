@@ -20,6 +20,10 @@ sealed interface DataError {
     sealed interface Local : DataError {
         val message: String
 
+        data class NoEntity(
+            override val message: String
+        ) : Local
+
         data class Unknown(
             override val message: String
         ) : Local

@@ -1,3 +1,4 @@
+@file:Suppress("UnstableApiUsage")
 /*
  * Copyright 2025 Fatih OZTURK
  *
@@ -26,6 +27,7 @@ class EchoAndroidLibraryPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
+                apply("org.jetbrains.kotlinx.kover")
                 apply("echo.spotless")
                 apply("echo.detekt")
                 apply("echo.serialization")
@@ -36,6 +38,18 @@ class EchoAndroidLibraryPlugin : Plugin<Project> {
 
                 defaultConfig {
                     minSdk = Versions.MIN_SDK
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                }
+                packaging {
+                    resources {
+                        excludes += setOf(
+                            "META-INF/LICENSE.md",
+                            "META-INF/LICENSE-notice.md",
+                        )
+                    }
+                }
+                testOptions {
+                    unitTests.isIncludeAndroidResources = true
                 }
             }
             configureKotlin<KotlinAndroidProjectExtension>()

@@ -37,4 +37,9 @@ dependencies {
     implementation(libs.ktor.serialization.json)
     implementation(libs.ktor.content.negotiation)
     implementation(libs.ktor.engine.android)
+    testImplementation(libs.junit4)
+    testImplementation(libs.kotest)
+    testImplementation(libs.ktor.client.mock)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation("org.slf4j:slf4j-nop:2.0.16")
 }

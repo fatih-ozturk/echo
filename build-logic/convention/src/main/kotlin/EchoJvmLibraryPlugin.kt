@@ -27,6 +27,7 @@ class EchoJvmLibraryPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.jvm")
+                apply("org.jetbrains.kotlinx.kover")
                 apply("echo.spotless")
                 apply("echo.detekt")
             }

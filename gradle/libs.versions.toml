@@ -49,6 +49,7 @@ androidxTestRules = "1.6.1"
 robolectric = "4.14.1"
 dependencyGuard = "0.5.0"
 konsist = "0.17.3"
+kover = "0.9.1"
 
 [libraries]
 # Compose
@@ -142,6 +143,7 @@ room-testing = { group = "androidx.room", name = "room-testing", version.ref = "
 
 # Linters
 detekt-ruleset-compose = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "nlopezComposeRules" }
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 
 # Logging
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
@@ -153,6 +155,7 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 dependencyGuard-gradlePlugin = { group = "com.dropbox.dependency-guard", name = "com.dropbox.dependency-guard.gradle.plugin", version.ref = "dependencyGuard" }
+kover-gradlePlugin = { group = "org.jetbrains.kotlinx", name = "kover-gradle-plugin", version.ref = "kover" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -166,3 +169,4 @@ secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugi
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "dependencyGuard" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }

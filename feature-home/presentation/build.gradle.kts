@@ -27,6 +27,7 @@ dependencies {
     implementation(projects.core.presentation)
     implementation(projects.featureHome.domain)
     implementation(projects.designsystem.chroma)
+    implementation(projects.account.api)
 
     implementation(libs.androidx.browser)
     implementation(libs.arrow.core)

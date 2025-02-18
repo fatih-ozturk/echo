@@ -20,8 +20,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import echo.app.authentication.data.ds.remote.AccountRemoteDataSource
-import echo.app.authentication.data.ds.remote.AccountRemoteDataSourceImpl
 import echo.app.authentication.data.ds.remote.AuthenticationRemoteDataSource
 import echo.app.authentication.data.ds.remote.AuthenticationRemoteDataSourceImpl
 import echo.app.authentication.data.repository.AuthRepositoryImpl
@@ -44,12 +42,6 @@ abstract class AuthenticationModule {
     abstract fun bindAuthenticationRemoteDataSource(
         applicationCredentialsRemoteDataSourceImpl: AuthenticationRemoteDataSourceImpl
     ): AuthenticationRemoteDataSource
-
-    @Binds
-    @Singleton
-    abstract fun bindAccountRemoteDataSource(
-        accountRemoteDataSourceImpl: AccountRemoteDataSourceImpl
-    ): AccountRemoteDataSource
 
     companion object {
         @Provides

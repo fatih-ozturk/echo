@@ -17,21 +17,19 @@ package echo.app.authentication.data.repository
 
 import arrow.core.Either
 import arrow.core.raise.either
-import echo.app.authentication.data.ds.remote.AccountRemoteDataSource
+import echo.app.account.api.AccountRepository
+import echo.app.account.api.model.Session
 import echo.app.authentication.data.ds.remote.AuthenticationRemoteDataSource
 import echo.app.authentication.domain.model.ApplicationCredentials
 import echo.app.authentication.domain.repository.AuthRepository
-import echo.app.authmanager.domain.AuthManager
-import echo.app.authmanager.domain.model.Account
-import echo.app.authmanager.domain.model.Session
 import echo.app.data.util.toDataError
 import echo.app.domain.error.DataError
+import echo.app.domain.model.Account
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val authenticationRemoteDataSource: AuthenticationRemoteDataSource,
-    private val accountRemoteDataSource: AccountRemoteDataSource,
-    private val authManager: AuthManager,
+    private val accountRepository: AccountRepository,
 ) : AuthRepository {
 
     override suspend fun registerApp(
@@ -61,20 +59,21 @@ class AuthRepositoryImpl @Inject constructor(
             credentials = credentials
         ).toDataError().bind()
 
-        val currentAccount = accountRemoteDataSource.verifyAccountCredentials(
+        val currentAccount = accountRepository.verifyAccountCredentials(
             domain = credentials.domain,
             accessToken = accessTokenResponse.accessToken
-        ).toDataError().bind()
+        ).bind()
 
         val session = Session(
             accessToken = accessTokenResponse.accessToken,
+            domain = credentials.domain
         )
 
         val account = Account(
-            accountId = currentAccount.id,
+            accountId = currentAccount.accountId,
             username = currentAccount.username
         )
 
-        authManager.upsertAccountWithSession(account, session)
+        accountRepository.upsertAccountWithSession(account, session)
     }
 }

@@ -42,6 +42,7 @@ dependencies {
     compileOnly(libs.spotless.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.dependencyGuard.gradlePlugin)
+    compileOnly(libs.kover.gradlePlugin)
 }
 
 gradlePlugin {
@@ -50,11 +51,11 @@ gradlePlugin {
             id = "echo.android.application.compose"
             implementationClass = "EchoAndroidApplicationComposePlugin"
         }
-        register("androidApplication"){
+        register("androidApplication") {
             id = "echo.android.application"
             implementationClass = "EchoAndroidApplicationPlugin"
         }
-        register("detekt"){
+        register("detekt") {
             id = "echo.detekt"
             implementationClass = "EchoAndroidDetektPlugin"
         }
@@ -94,7 +95,7 @@ gradlePlugin {
             id = "echo.jvm.library"
             implementationClass = "EchoJvmLibraryPlugin"
         }
-        register("serialization"){
+        register("serialization") {
             id = "echo.serialization"
             implementationClass = "EchoSerializationPlugin"
         }

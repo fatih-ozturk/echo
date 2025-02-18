@@ -17,9 +17,9 @@ package echo.app.splash.presentation
 
 import androidx.lifecycle.viewModelScope
 import echo.app.core.presentation.BaseViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class SplashViewModel @Inject constructor() : BaseViewModel<Unit, SplashAction, Unit>(
     initialState = Unit

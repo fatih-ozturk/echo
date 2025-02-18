@@ -18,7 +18,6 @@ package echo.app.network.api
 import arrow.core.Either
 import echo.app.network.core.json
 import echo.app.network.model.account.AccountResponse
-import echo.app.network.model.request.AccountRequest
 import echo.app.network.utils.ApiError
 import echo.app.network.utils.safeRequest
 import io.ktor.client.HttpClient
@@ -46,10 +45,10 @@ class AccountApi internal constructor(
             json()
         }
 
-    suspend fun getAccount(request: AccountRequest): Either<ApiError, AccountResponse> =
+    suspend fun getAccount(accountId: String): Either<ApiError, AccountResponse> =
         client.safeRequest {
             url {
-                path("accounts/${request.id}")
+                path("accounts/$accountId")
             }
             json()
         }

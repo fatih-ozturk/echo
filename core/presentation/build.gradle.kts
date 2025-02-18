@@ -26,4 +26,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(projects.designsystem.chroma)
 
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit4)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotest)
+    testImplementation(libs.ktor.client.mock)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

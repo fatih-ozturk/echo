@@ -26,4 +26,12 @@ android {
 dependencies {
     implementation(libs.arrow.core)
     implementation(libs.timber)
+
+    testImplementation(libs.kotest)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.room.testing)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit4)
 }

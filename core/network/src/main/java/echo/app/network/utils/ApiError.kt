@@ -19,17 +19,17 @@ sealed class ApiError {
 
     data class MastodonError(
         val code: Int,
-        val message: String
+        val message: String,
     ) : ApiError()
 
     data class HttpError(
         val code: Int,
         val message: String,
-        val throwable: Throwable?
+        val throwable: Throwable?,
     ) : ApiError()
 
     data class UnknownError(
         val message: String,
-        val throwable: Throwable?
+        val throwable: Throwable?,
     ) : ApiError()
 }

@@ -16,7 +16,10 @@
 package echo.app.network.core
 
 import echo.app.network.MastodonClientConfig
+import echo.app.network.MastodonWebConfig.MASTODON_HOST
 import echo.app.network.model.MastodonErrorResponse
+import echo.app.network.model.MastodonException
+import echo.app.network.utils.RequestUrlTransformer
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.call.HttpClientCall
@@ -52,14 +55,25 @@ internal object HttpClientFactory {
                 ignoreUnknownKeys = true
                 prettyPrint = true
                 isLenient = true
+                coerceInputValues = true
             }
 
             defaultRequest {
                 url {
-                    val serverHost = config.mastodonAuthCredentials?.loadDomainProvider?.invoke()
                     protocol = URLProtocol.HTTPS
-                    host = serverHost.orEmpty()
+                    host = MASTODON_HOST
                     path("/api/v1/")
+                }
+            }
+
+            install(RequestUrlTransformer) {
+                url {
+                    val serverHost = config.mastodonAuthCredentials?.loadDomainProvider?.invoke()
+                    serverHost?.let {
+                        apply {
+                            host = serverHost
+                        }
+                    }
                 }
             }
 
@@ -85,7 +99,7 @@ internal object HttpClientFactory {
                     if (response.request.url.host.isEmpty()) {
                         throw ClientRequestException(
                             response.asUnauthorizedResponse(),
-                            "Unauthorized request."
+                            "Unauthorized request.",
                         )
                     }
                 }
@@ -95,7 +109,9 @@ internal object HttpClientFactory {
 
                     throw try {
                         val jsonString = clientException.response.bodyAsText()
-                        val mastodonErrorResponse = json.decodeFromString<MastodonErrorResponse>(jsonString)
+                        val mastodonErrorResponse = json.decodeFromString<MastodonErrorResponse>(
+                            jsonString,
+                        )
                         MastodonException(mastodonErrorResponse, exception)
                     } catch (serializationException: SerializationException) {
                         serializationException

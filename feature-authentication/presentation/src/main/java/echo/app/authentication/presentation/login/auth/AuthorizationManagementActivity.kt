@@ -101,7 +101,7 @@ internal class AuthorizationManagementActivity : Activity() {
 
         fun createIntent(
             context: Context,
-            applicationCredentials: ApplicationCredentials
+            applicationCredentials: ApplicationCredentials,
         ) = Intent(context, AuthorizationManagementActivity::class.java).apply {
             putExtra(KEY_AUTH_REQUEST, applicationCredentials)
         }

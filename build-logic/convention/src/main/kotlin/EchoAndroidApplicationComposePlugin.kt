@@ -16,6 +16,9 @@
 import com.android.build.api.dsl.ApplicationExtension
 import echo.app.utils.configureAndroidCompose
 import echo.app.utils.configureKotlin
+import echo.app.utils.configureKover
+import echo.app.utils.registerFeatureCreatorTask
+import echo.app.utils.registerModuleCreatorTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -28,6 +31,7 @@ class EchoAndroidApplicationComposePlugin : Plugin<Project> {
                 apply("echo.android.application")
                 apply("org.jetbrains.kotlin.plugin.compose")
                 apply("org.jetbrains.kotlin.android")
+                apply("org.jetbrains.kotlinx.kover")
                 apply("echo.hilt")
                 apply("echo.android.room")
                 apply("echo.detekt")
@@ -38,6 +42,9 @@ class EchoAndroidApplicationComposePlugin : Plugin<Project> {
             val extension = extensions.getByType<ApplicationExtension>()
             configureAndroidCompose(extension)
             configureKotlin<KotlinAndroidProjectExtension>()
+            configureKover()
+            registerModuleCreatorTask()
+            registerFeatureCreatorTask()
         }
     }
 }

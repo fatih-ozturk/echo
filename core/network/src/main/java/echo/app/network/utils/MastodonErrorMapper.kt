@@ -15,25 +15,25 @@
  */
 package echo.app.network.utils
 
-import echo.app.network.core.MastodonException
+import echo.app.network.model.MastodonException
 import io.ktor.client.plugins.ClientRequestException
 
 internal fun Throwable.toNetworkError(): ApiError {
     return when (this) {
         is MastodonException -> ApiError.MastodonError(
             errorResponse.statusCode,
-            errorResponse.message
+            errorResponse.message,
         )
 
         is ClientRequestException -> ApiError.HttpError(
             code = response.status.value,
             message = response.toString(),
-            throwable = this
+            throwable = this,
         )
 
         else -> ApiError.UnknownError(
             message = message.orEmpty(),
-            throwable = this
+            throwable = this,
         )
     }
 }

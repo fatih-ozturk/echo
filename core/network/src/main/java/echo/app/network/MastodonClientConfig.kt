@@ -15,7 +15,7 @@
  */
 package echo.app.network
 
-import echo.app.network.core.MastodonDsl
+import echo.app.network.model.MastodonDsl
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.HttpClientEngineConfig
@@ -37,7 +37,7 @@ class MastodonClientConfig {
 
     fun <T : HttpClientEngineConfig> httpClient(
         engineFactory: HttpClientEngineFactory<T>,
-        block: HttpClientConfig<T>.() -> Unit = {}
+        block: HttpClientConfig<T>.() -> Unit = {},
     ) {
         httpClientBuilder = {
             HttpClient(engineFactory, block)
@@ -48,13 +48,13 @@ class MastodonClientConfig {
 @MastodonDsl
 class MastodonAuthCredentials {
     internal var loadTokensProvider: (suspend () -> String?)? = null
-    internal var loadDomainProvider: (() -> String?)? = null
+    internal var loadDomainProvider: (suspend () -> String?)? = null
 
     fun loadAccessToken(provider: suspend () -> String?) {
         loadTokensProvider = provider
     }
 
-    fun loadDomain(provider: () -> String?) {
+    fun loadDomain(provider: suspend () -> String?) {
         loadDomainProvider = provider
     }
 }

@@ -26,15 +26,16 @@ import echo.app.authentication.presentation.login.auth.model.AuthorizationExcept
 import echo.app.authentication.presentation.login.auth.model.AuthorizationResponse
 import echo.app.core.presentation.BaseViewModel
 import echo.app.domain.inputstate.StringInputState
+import javax.inject.Inject
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val validateDomainUseCase: ValidateDomainUseCase, private val authRepository: AuthRepository
+    private val validateDomainUseCase: ValidateDomainUseCase,
+    private val authRepository: AuthRepository,
 ) : BaseViewModel<LoginState, LoginEvent, LoginAction>(
-    initialState = LoginState()
+    initialState = LoginState(),
 ) {
     override fun handleAction(action: LoginAction) {
         when (action) {
@@ -46,7 +47,7 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun handleLoginResult(
-        loginResult: Either<AuthorizationException, AuthorizationResponse>
+        loginResult: Either<AuthorizationException, AuthorizationResponse>,
     ) {
         dialogDismiss()
         loginResult.onRight {
@@ -69,7 +70,7 @@ class LoginViewModel @Inject constructor(
 
         authRepository.authenticateWithCode(
             code = code,
-            credentials = currentApplicationCredentials
+            credentials = currentApplicationCredentials,
         ).onRight {
             sendEvent(LoginEvent.NavigateToHome)
             Timber.e("Logged In")
@@ -88,7 +89,7 @@ class LoginViewModel @Inject constructor(
         }.onLeft { error ->
             setState {
                 copy(
-                    domainInputState = domainInputState.update(error)
+                    domainInputState = domainInputState.update(error),
                 )
             }
         }
@@ -97,7 +98,7 @@ class LoginViewModel @Inject constructor(
     private fun onDomainChanged(domain: String) {
         setState {
             copy(
-                domainInputState = domainInputState.update(value = domain)
+                domainInputState = domainInputState.update(value = domain),
             )
         }
     }
@@ -109,7 +110,7 @@ class LoginViewModel @Inject constructor(
             .onRight { credentials ->
                 setState {
                     copy(
-                        applicationCredentials = credentials
+                        applicationCredentials = credentials,
                     )
                 }
                 sendEvent(LoginEvent.LaunchAuthorizationActivity(credentials))
@@ -153,5 +154,7 @@ sealed class LoginAction {
     data class OnDomainChanged(val domain: String) : LoginAction()
     data object OnLoginClicked : LoginAction()
     data object DialogDismiss : LoginAction()
-    data class HandleLoginResult(val loginResult: Either<AuthorizationException, AuthorizationResponse>) : LoginAction()
+    data class HandleLoginResult(
+        val loginResult: Either<AuthorizationException, AuthorizationResponse>,
+    ) : LoginAction()
 }

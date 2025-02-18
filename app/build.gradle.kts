@@ -24,8 +24,6 @@ android {
         applicationId = "echo.app"
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "echo.app.EchoTestRunner"
     }
 
     ksp {
@@ -35,33 +33,45 @@ android {
 }
 
 dependencies {
+    runtimeOnly(libs.androidx.compose.runtime.tracing)
+
     implementation(projects.designsystem.chroma)
-    implementation(projects.designsystem.chromaIcons)
+    implementation(projects.core.common)
     implementation(projects.core.presentation)
     implementation(projects.core.data)
     implementation(projects.core.network)
     implementation(projects.core.database)
+    implementation(projects.core.domain)
     implementation(projects.featureSplash.presentation)
     implementation(projects.featureAuthentication.presentation)
     implementation(projects.featureAuthentication.data)
     implementation(projects.featureAuthentication.domain)
     implementation(projects.featureHome.presentation)
-    implementation(projects.featureHome.data)
     implementation(projects.featureHome.domain)
-    implementation(projects.authmanager.data)
-    implementation(projects.authmanager.domain)
+    implementation(projects.account.impl)
+    implementation(projects.account.api)
+    implementation(projects.securityCrypto.api)
+    implementation(projects.securityCrypto.impl)
+    implementation(projects.appConfig.api)
 
+    implementation(libs.arrow.core)
     implementation(libs.ktor.logging)
     implementation(libs.timber)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-    runtimeOnly(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
 
     implementation(libs.room.ktx)
 
-    androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.hilt.android.testing)
+    testImplementation(libs.kotest)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.room.testing)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit4)
+    testImplementation(libs.hilt.android.testing)
+    testImplementation(libs.androidx.test.ext)
 }

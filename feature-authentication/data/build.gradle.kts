@@ -28,8 +28,8 @@ dependencies {
     implementation(projects.core.database)
     implementation(projects.core.domain)
     implementation(projects.core.network)
-    implementation(projects.authmanager.domain)
     implementation(projects.featureAuthentication.domain)
+    implementation(projects.account.api)
 
     implementation(libs.arrow.core)
     implementation(libs.timber)

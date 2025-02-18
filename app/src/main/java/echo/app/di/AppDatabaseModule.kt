@@ -22,8 +22,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import echo.app.authmanager.data.db.AccountDatabase
-import echo.app.db.AppDatabase
+import echo.app.account.implementation.database.AccountDatabase
+import echo.app.database.AppDatabase
 import javax.inject.Singleton
 
 @Module

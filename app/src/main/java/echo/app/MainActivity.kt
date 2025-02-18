@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
                     navController = navController,
                     hideSplashScreen = {
                         shouldShowSplashScreen = false
-                    }
+                    },
                 )
             }
         }
@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
 fun EchoApp(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    hideSplashScreen: () -> Unit
+    hideSplashScreen: () -> Unit,
 ) {
     LaunchedEffect(Unit) { // TODO delete
         navController.currentBackStack
@@ -120,7 +120,7 @@ fun EchoNavHost(
                         popUpTo(SplashRoute) {
                             inclusive = true
                         }
-                    }
+                    },
                 )
                 hideSplashScreen()
             },
@@ -130,10 +130,10 @@ fun EchoNavHost(
                         popUpTo(SplashRoute) {
                             inclusive = true
                         }
-                    }
+                    },
                 )
                 hideSplashScreen()
-            }
+            },
         )
         loginRoute(
             navigateToHome = {
@@ -142,9 +142,9 @@ fun EchoNavHost(
                         popUpTo(LoginRoute) {
                             inclusive = true
                         }
-                    }
+                    },
                 )
-            }
+            },
         )
         homeRoute()
     }

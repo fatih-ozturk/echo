@@ -31,6 +31,7 @@ class EchoAndroidApplicationPlugin : Plugin<Project> {
                 defaultConfig {
                     minSdk = Versions.MIN_SDK
                     targetSdk = Versions.TARGET_SDK
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
 
                 buildFeatures {
@@ -54,9 +55,14 @@ class EchoAndroidApplicationPlugin : Plugin<Project> {
 
                 packaging {
                     resources {
-                        excludes.add("META-INF/LICENSE.md")
-                        excludes.add("META-INF/LICENSE-notice.md")
+                        excludes += setOf(
+                            "META-INF/LICENSE.md",
+                            "META-INF/LICENSE-notice.md",
+                        )
                     }
+                }
+                testOptions {
+                    unitTests.isIncludeAndroidResources = true
                 }
             }
         }

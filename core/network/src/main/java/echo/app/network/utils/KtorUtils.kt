@@ -22,7 +22,7 @@ import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.request
 
 internal suspend inline fun <reified T> HttpClient.safeRequest(
-    requestBuilder: HttpRequestBuilder.() -> Unit
+    requestBuilder: HttpRequestBuilder.() -> Unit,
 ): Either<ApiError, T> =
     Either
         .catch<T> {

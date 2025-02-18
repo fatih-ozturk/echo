@@ -17,6 +17,7 @@ package echo.app.utils
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
+import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
@@ -45,4 +46,53 @@ internal fun Project.configureAndroidLibrary(
         targetCompatibility = JavaVersion.VERSION_17
     }
     configure()
+}
+
+internal fun Project.configureKover() {
+    rootProject.subprojects.forEach { subproject ->
+        if (subproject.pluginManager.hasPlugin("org.jetbrains.kotlin.plugin.compose")) return@forEach
+        subproject.pluginManager.withPlugin("org.jetbrains.kotlinx.kover") {
+            dependencies.kover(project(subproject.path))
+        }
+    }
+
+    configure<KoverProjectExtension> {
+        reports {
+            filters {
+                excludes {
+                    androidGeneratedClasses()
+                    annotatedBy("androidx.compose.ui.tooling.preview.Preview")
+                    annotatedBy("Generated")
+                    packages(
+                        "dagger.hilt.*",
+                        "hilt_aggregated_deps",
+                        "*.model",
+                        "echo.app.chroma*",
+                        "echo.app.core*",
+                        "*.di",
+                        "*.navigation",
+                    )
+                    classes(
+                        "Hilt_*",
+                        "*_Factory",
+                        "*_HiltModules*",
+                        "*_Provide*Factory*",
+                        "*Module*.*",
+                        "*Dagger*.*",
+                        "*Hilt*.*",
+                        "*_HiltModules*",
+                        "*MembersInjector*.*",
+                        "*_MembersInjector.class",
+                        "*_Factory*.*",
+                        "*_Factory\$*",
+                        "*.*ComposableSingletons*",
+                        "*.*NavigationKt*",
+                        "*.dao.*Dao*",
+                        "*.entity.*Entity*",
+                        "*.database.*Database*",
+                    )
+                }
+            }
+        }
+    }
 }

@@ -19,7 +19,7 @@ import echo.app.network.api.AccountApi
 import echo.app.network.api.AuthApi
 import echo.app.network.api.MastodonApi
 import echo.app.network.core.HttpClientFactory
-import echo.app.network.core.MastodonDsl
+import echo.app.network.model.MastodonDsl
 import io.ktor.client.HttpClient
 
 @MastodonDsl
@@ -29,11 +29,11 @@ fun Mastodon(block: MastodonClientConfig.() -> Unit): Mastodon {
 }
 
 class Mastodon internal constructor(
-    private val config: MastodonClientConfig
+    private val config: MastodonClientConfig,
 ) {
     private val client by lazy {
         HttpClientFactory.buildHttpClient(
-            config = config
+            config = config,
         )
     }
 

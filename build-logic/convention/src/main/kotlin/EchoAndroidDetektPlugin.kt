@@ -74,6 +74,7 @@ class EchoAndroidDetektPlugin : Plugin<Project> {
 
             dependencies {
                 detektPlugins(libs.findLibrary("detekt.ruleset.compose").get())
+                detektPlugins(libs.findLibrary("detekt.formatting").get())
             }
         }
     }

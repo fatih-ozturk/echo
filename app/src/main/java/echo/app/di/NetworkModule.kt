@@ -20,6 +20,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import echo.app.BuildConfig
+import echo.app.account.api.SessionRepository
+import echo.app.appconfig.api.AppConfig
 import echo.app.network.Mastodon
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -31,10 +33,20 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
 
-    @Singleton
     @Provides
-    internal fun provideMastodon(): Mastodon {
+    @Singleton
+    internal fun provideMastodon(
+        sessionRepository: SessionRepository,
+    ): Mastodon {
         return Mastodon {
+            userAuthentication {
+                loadDomain {
+                    sessionRepository.getPrimarySession().getOrNull()?.domain
+                }
+                loadAccessToken {
+                    sessionRepository.getPrimarySession().getOrNull()?.accessToken
+                }
+            }
             httpClientConfig {
                 if (BuildConfig.DEBUG) {
                     install(Logging) {

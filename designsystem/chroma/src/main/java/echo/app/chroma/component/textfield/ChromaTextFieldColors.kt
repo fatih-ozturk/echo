@@ -47,13 +47,13 @@ data class ChromaTextFieldColors(
     val errorHintColor: Color,
     val trailingIconColor: Color,
     val leadingIconColor: Color,
-    val errorIconColor: Color
+    val errorIconColor: Color,
 ) {
     @Composable
     internal fun borderModifier(
         enabled: Boolean,
         isError: Boolean,
-        interactionSource: InteractionSource
+        interactionSource: InteractionSource,
     ): State<Modifier> {
         val focused by interactionSource.collectIsFocusedAsState()
         val targetValue =
@@ -78,13 +78,13 @@ data class ChromaTextFieldColors(
                 border(
                     2.dp,
                     outerBorderColor,
-                    ChromaTheme.shapes.radiusMd
+                    ChromaTheme.shapes.radiusMd,
                 )
             }
             .border(
                 borderWidth,
                 targetValue,
-                ChromaTheme.shapes.radiusMd
+                ChromaTheme.shapes.radiusMd,
             )
 
         return rememberUpdatedState(modifier)

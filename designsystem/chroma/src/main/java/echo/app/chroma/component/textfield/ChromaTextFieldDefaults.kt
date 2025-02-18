@@ -39,7 +39,7 @@ object ChromaTextFieldDefaults {
         errorHintColor: Color = ChromaTheme.colors.textErrorPrimary,
         trailingIconColor: Color = ChromaTheme.colors.fgQuinary,
         leadingIconColor: Color = ChromaTheme.colors.fgQuarterary,
-        errorIconColor: Color = ChromaTheme.colors.fgErrorSecondary
+        errorIconColor: Color = ChromaTheme.colors.fgErrorSecondary,
     ): ChromaTextFieldColors = remember(
         textColor,
         labelTextColor,
@@ -57,7 +57,7 @@ object ChromaTextFieldDefaults {
         errorHintColor,
         trailingIconColor,
         leadingIconColor,
-        errorIconColor
+        errorIconColor,
     ) {
         ChromaTextFieldColors(
             textColor = textColor,
@@ -76,7 +76,7 @@ object ChromaTextFieldDefaults {
             errorHintColor = errorHintColor,
             trailingIconColor = trailingIconColor,
             leadingIconColor = leadingIconColor,
-            errorIconColor = errorIconColor
+            errorIconColor = errorIconColor,
         )
     }
 }

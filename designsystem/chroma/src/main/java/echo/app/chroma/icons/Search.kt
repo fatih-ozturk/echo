@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package echo.app.chromaicons.chromaicons
+package echo.app.chroma.icons
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType.Companion.NonZero
@@ -24,7 +24,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
-import echo.app.chromaicons.ChromaIcons
 
 val ChromaIcons.Search: ImageVector
     get() {
@@ -36,7 +35,7 @@ val ChromaIcons.Search: ImageVector
             defaultWidth = 24.0.dp,
             defaultHeight = 24.0.dp,
             viewportWidth = 960.0f,
-            viewportHeight = 960.0f
+            viewportHeight = 960.0f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFFe8eaed)),
@@ -45,7 +44,7 @@ val ChromaIcons.Search: ImageVector
                 strokeLineCap = Butt,
                 strokeLineJoin = Miter,
                 strokeLineMiter = 4.0f,
-                pathFillType = NonZero
+                pathFillType = NonZero,
             ) {
                 moveTo(382.0f, 600.0f)
                 quadToRelative(-92.0f, 0.0f, -156.0f, -64.0f)

@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @Immutable
 data class ChromaTextFieldSizes(
     val contentPadding: PaddingValues,
-    val textFieldHeight: Dp
+    val textFieldHeight: Dp,
 )
 
 object ChromaTextFieldSizesDefaults {
@@ -34,13 +34,13 @@ object ChromaTextFieldSizesDefaults {
         contentPadding: PaddingValues =
             PaddingValues(
                 vertical = 8.dp,
-                horizontal = 12.dp
+                horizontal = 12.dp,
             ),
-        textFieldHeight: Dp = 40.dp
+        textFieldHeight: Dp = 40.dp,
     ) = remember {
         ChromaTextFieldSizes(
             contentPadding = contentPadding,
-            textFieldHeight = textFieldHeight
+            textFieldHeight = textFieldHeight,
         )
     }
 
@@ -49,13 +49,13 @@ object ChromaTextFieldSizesDefaults {
         contentPadding: PaddingValues =
             PaddingValues(
                 vertical = 12.dp,
-                horizontal = 14.dp
+                horizontal = 14.dp,
             ),
-        textFieldHeight: Dp = 44.dp
+        textFieldHeight: Dp = 44.dp,
     ) = remember {
         ChromaTextFieldSizes(
             contentPadding = contentPadding,
-            textFieldHeight = textFieldHeight
+            textFieldHeight = textFieldHeight,
         )
     }
 }

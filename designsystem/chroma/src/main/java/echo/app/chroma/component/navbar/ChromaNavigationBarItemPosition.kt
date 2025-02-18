@@ -20,5 +20,5 @@ import androidx.compose.runtime.Immutable
 @Immutable
 data class ChromaNavigationBarItemPosition(
     val x: Float,
-    val y: Float
+    val y: Float,
 )

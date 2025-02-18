@@ -55,7 +55,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.primary(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.none()
+        borders: ButtonBorders = ChromaButtonBorders.none(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -65,7 +65,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -78,7 +78,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.secondaryGray(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.secondaryGray()
+        borders: ButtonBorders = ChromaButtonBorders.secondaryGray(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -88,7 +88,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -101,7 +101,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.secondaryColor(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.secondaryColor()
+        borders: ButtonBorders = ChromaButtonBorders.secondaryColor(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -111,7 +111,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -124,7 +124,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.tertiaryGray(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.none()
+        borders: ButtonBorders = ChromaButtonBorders.none(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -134,7 +134,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -147,7 +147,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.tertiaryColor(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.none()
+        borders: ButtonBorders = ChromaButtonBorders.none(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -157,7 +157,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -170,7 +170,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.primaryDestructive(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.none()
+        borders: ButtonBorders = ChromaButtonBorders.none(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -180,7 +180,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -193,7 +193,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.secondaryDestructive(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.secondaryDestructive()
+        borders: ButtonBorders = ChromaButtonBorders.secondaryDestructive(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -203,7 +203,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 
     @Composable
@@ -216,7 +216,7 @@ object ChromaButtons {
         rightIcon: Painter? = null,
         colors: ButtonColors = ChromaButtonColors.tertiaryDestructive(),
         sizes: ButtonSizes = ChromaButtonSizes.medium(),
-        borders: ButtonBorders = ChromaButtonBorders.none()
+        borders: ButtonBorders = ChromaButtonBorders.none(),
     ) = ChromaButtonImpl(
         text = text,
         enabled = enabled,
@@ -226,7 +226,7 @@ object ChromaButtons {
         modifier = modifier,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
-        borders = borders
+        borders = borders,
     )
 }
 
@@ -240,19 +240,19 @@ internal fun ChromaButtonImpl(
     modifier: Modifier = Modifier,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
-    borders: ButtonBorders = ChromaButtonBorders.none()
+    borders: ButtonBorders = ChromaButtonBorders.none(),
 ) {
     val contentColor = if (enabled) colors.contentColor else colors.disabledContentColor
     val containerColor = if (enabled) colors.containerColor else colors.disabledContainerColor
     val border = if (enabled) borders.stroke else borders.disabled
     val colorFilter = ColorFilter.tint(
-        if (enabled) colors.contentColor else colors.disabledContentColor
+        if (enabled) colors.contentColor else colors.disabledContentColor,
     )
     val mergedStyle =
         sizes.textStyle.merge(
             TextStyle(
-                color = contentColor
-            )
+                color = contentColor,
+            ),
         )
     Box(
         modifier = modifier
@@ -262,32 +262,32 @@ internal fun ChromaButtonImpl(
                 if (border != null) {
                     Modifier.border(
                         border,
-                        shape = ChromaTheme.shapes.radiusMd
+                        shape = ChromaTheme.shapes.radiusMd,
                     )
                 } else {
                     Modifier
-                }
+                },
             )
             .clip(shape = ChromaTheme.shapes.radiusMd)
             .background(color = containerColor)
             .clickable(
                 enabled = enabled,
-                onClick = onClick
-            )
+                onClick = onClick,
+            ),
     ) {
         Row(
             modifier = Modifier
                 .padding(sizes.contentPadding)
                 .align(Alignment.Center),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             leftIcon?.let {
                 Image(
                     modifier = Modifier.size(sizes.iconSize),
                     painter = it,
                     contentDescription = null,
-                    colorFilter = colorFilter
+                    colorFilter = colorFilter,
                 )
                 Spacer(modifier = Modifier.width(sizes.iconPadding))
             }
@@ -296,7 +296,7 @@ internal fun ChromaButtonImpl(
                 text = text,
                 style = mergedStyle,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 1
+                maxLines = 1,
             )
             rightIcon?.let {
                 Spacer(modifier = Modifier.width(sizes.iconPadding))
@@ -304,7 +304,7 @@ internal fun ChromaButtonImpl(
                     modifier = Modifier.size(sizes.iconSize),
                     painter = it,
                     contentDescription = null,
-                    colorFilter = colorFilter
+                    colorFilter = colorFilter,
                 )
             }
         }
@@ -321,54 +321,54 @@ private fun ChromaButtonsPreview() {
                 .fillMaxSize()
                 .background(ChromaTheme.colors.bgPrimary)
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             ChromaButtons.Primary(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
 
             ChromaButtons.SecondaryGray(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
 
             ChromaButtons.SecondaryColor(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
 
             ChromaButtons.TertiaryGray(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
 
             ChromaButtons.TertiaryColor(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
 
             ChromaButtons.PrimaryDestructive(
                 text = "Button",
                 onClick = {},
-                enabled = true
+                enabled = true,
             )
 
             ChromaButtons.SecondaryDestructive(
                 text = "Button",
                 onClick = {},
-                enabled = true
+                enabled = true,
             )
 
             ChromaButtons.TertiaryDestructive(
                 text = "Button",
                 enabled = true,
-                onClick = {}
+                onClick = {},
             )
         }
     }

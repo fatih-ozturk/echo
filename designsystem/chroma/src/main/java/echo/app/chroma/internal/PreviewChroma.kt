@@ -23,25 +23,25 @@ import androidx.compose.ui.tooling.preview.Preview
     name = "phone",
     group = "devices",
     locale = "fr-rFR",
-    device = "spec:width=411dp,height=891dp"
+    device = "spec:width=411dp,height=891dp",
 )
 @Preview(
     name = "foldable",
     group = "devices",
     locale = "fr-rFR",
-    device = "spec:width=673dp,height=841dp"
+    device = "spec:width=673dp,height=841dp",
 )
 internal annotation class PreviewScreenSizes
 
 @Preview(
     name = "light",
     group = "themes",
-    uiMode = UI_MODE_NIGHT_NO
+    uiMode = UI_MODE_NIGHT_NO,
 )
 @Preview(
     name = "dark",
     group = "themes",
-    uiMode = UI_MODE_NIGHT_YES
+    uiMode = UI_MODE_NIGHT_YES,
 )
 internal annotation class PreviewThemes
 

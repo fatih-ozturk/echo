@@ -171,7 +171,7 @@ class ChromaColors(
     buttonSecondaryErrorBg: Color,
     buttonSecondaryErrorFg: Color,
     buttonSecondaryErrorBorder: Color,
-    buttonTertiaryErrorFg: Color
+    buttonTertiaryErrorFg: Color,
 ) {
     var textPrimary by mutableStateOf(textPrimary)
         private set
@@ -564,7 +564,7 @@ val lightColors = ChromaColors(
     buttonSecondaryErrorBg = ChromaPalette.white,
     buttonSecondaryErrorFg = ChromaPalette.error700,
     buttonSecondaryErrorBorder = ChromaPalette.error300,
-    buttonTertiaryErrorFg = ChromaPalette.error700
+    buttonTertiaryErrorFg = ChromaPalette.error700,
 )
 
 val darkColors = ChromaColors(
@@ -666,7 +666,7 @@ val darkColors = ChromaColors(
     buttonSecondaryErrorBg = ChromaPalette.error950,
     buttonSecondaryErrorFg = ChromaPalette.error200,
     buttonSecondaryErrorBorder = ChromaPalette.error800,
-    buttonTertiaryErrorFg = ChromaPalette.error300
+    buttonTertiaryErrorFg = ChromaPalette.error300,
 )
 
 @Suppress("DEPRECATION")
@@ -699,7 +699,7 @@ fun ChromaColors.asMaterial3Colors() = ColorScheme(
     onErrorContainer = this.bgErrorPrimary,
     outline = this.borderPrimary,
     outlineVariant = this.borderSecondary,
-    scrim = this.borderBrand
+    scrim = this.borderBrand,
 )
 
 internal val LocalChromaColors = compositionLocalOf<ChromaColors> { error("No Color provided!") }

@@ -40,7 +40,7 @@ import echo.app.chroma.tokens.ChromaTheme
 fun ChromaAnimatedNavBar(
     selectedIndex: Int,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit = {}
+    content: @Composable () -> Unit = {},
 ) {
     var itemOffsetList by remember { mutableStateOf(listOf<Offset>()) }
 
@@ -50,21 +50,21 @@ fun ChromaAnimatedNavBar(
                 Offset.Infinite
             } else {
                 itemOffsetList.getOrElse(selectedIndex) { Offset.Infinite }
-            }
+            },
         )
     }
 
     val offsetAnimationState by animateOffsetAsState(
         targetValue = selectedItemOffset,
         animationSpec = spring(dampingRatio = 0.7f, stiffness = 700F),
-        label = ""
+        label = "",
     )
 
     Box(
         modifier = modifier
             .height(ChromaNavigationBarTokens.NavBarHeight)
             .shadow(ChromaNavigationBarTokens.NavBarShadow)
-            .background(ChromaTheme.colors.bgPrimary)
+            .background(ChromaTheme.colors.bgPrimary),
     ) {
         if (offsetAnimationState.isSpecified) {
             Box(
@@ -74,13 +74,13 @@ fun ChromaAnimatedNavBar(
                     .offset {
                         IntOffset(
                             x = offsetAnimationState.x.toInt(),
-                            y = offsetAnimationState.y.toInt()
+                            y = offsetAnimationState.y.toInt(),
                         )
                     }
                     .background(
                         color = ChromaTheme.colors.bgTertiary,
-                        shape = ChromaTheme.shapes.radiusSm
-                    )
+                        shape = ChromaTheme.shapes.radiusSm,
+                    ),
             )
         }
 
@@ -111,8 +111,8 @@ fun ChromaAnimatedNavBar(
                                     (navigationBarItem.width / 2f) -
                                     (ChromaNavigationBarTokens.IndicatorWidth / 2).toPx(),
                                 y = (height / 2).toFloat() -
-                                    (ChromaNavigationBarTokens.IndicatorHeight.toPx() / 2)
-                            )
+                                    (ChromaNavigationBarTokens.IndicatorHeight.toPx() / 2),
+                            ),
                         )
 
                         navigationBarItemX += navigationBarItem.width
@@ -121,7 +121,7 @@ fun ChromaAnimatedNavBar(
                         Offset(xCord.x, xCord.y)
                     }
                 }
-            }
+            },
         )
     }
 }

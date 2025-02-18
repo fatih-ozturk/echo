@@ -69,7 +69,7 @@ fun ChromaTextField(
     readOnly: Boolean = false,
     textStyle: TextStyle = ChromaTheme.typography.textMd.copy(
         fontWeight = FontWeight.Normal,
-        color = colors.textColor
+        color = colors.textColor,
     ),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -78,7 +78,7 @@ fun ChromaTextField(
     minLines: Int = 1,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val borderModifier by colors.borderModifier(enabled, isError, interactionSource)
     val backgroundColors by colors.backgroundColors(enabled)
@@ -88,18 +88,18 @@ fun ChromaTextField(
 
     Column(
         modifier = modifier
-            .background(ChromaTheme.colors.bgPrimary)
+            .background(ChromaTheme.colors.bgPrimary),
     ) {
         if (label.isNotEmpty()) {
             BasicText(
                 text = label,
                 style =
                 ChromaTheme.typography.textSm.copy(
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
                 ),
                 color = { colors.labelTextColor },
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         }
         BasicTextField(
@@ -126,21 +126,21 @@ fun ChromaTextField(
                         .fillMaxWidth()
                         .background(
                             backgroundColors,
-                            ChromaTheme.shapes.radiusMd
+                            ChromaTheme.shapes.radiusMd,
                         )
                         .then(borderModifier)
                         .padding(sizes.contentPadding),
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     leadingIcon?.let {
                         CompositionLocalProvider(
                             LocalContentColor provides colors.leadingIconColor,
-                            content = leadingIcon
+                            content = leadingIcon,
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                     }
                     Box(
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     ) {
                         innerTextField()
                         if (value.isEmpty()) {
@@ -149,7 +149,7 @@ fun ChromaTextField(
                                     text = placeholder,
                                     style = ChromaTheme.typography.textMd,
                                     fontWeight = FontWeight.Normal,
-                                    color = placeholderTextColors
+                                    color = placeholderTextColors,
                                 )
                             }
                         }
@@ -158,11 +158,11 @@ fun ChromaTextField(
                         Spacer(modifier = Modifier.width(8.dp))
                         CompositionLocalProvider(
                             LocalContentColor provides trailingIconColors,
-                            content = trailingIcon
+                            content = trailingIcon,
                         )
                     }
                 }
-            }
+            },
         )
         hint?.let {
             BasicText(
@@ -171,7 +171,7 @@ fun ChromaTextField(
                 style = ChromaTheme.typography.textSm,
                 color = { hintTextColors },
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
@@ -184,7 +184,7 @@ private fun ChromaTextFieldPreview() {
         Column(
             modifier = Modifier
                 .background(ChromaTheme.colors.bgPrimary)
-                .padding(16.dp)
+                .padding(16.dp),
         ) {
             var value by remember { mutableStateOf("") }
             ChromaTextField(
@@ -196,7 +196,7 @@ private fun ChromaTextFieldPreview() {
                 onValueChange = {
                     value = it
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Spacer(modifier = Modifier.height(30.dp))
@@ -209,7 +209,7 @@ private fun ChromaTextFieldPreview() {
                 onValueChange = {
                     value = it
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Spacer(modifier = Modifier.height(30.dp))
@@ -223,7 +223,7 @@ private fun ChromaTextFieldPreview() {
                 onValueChange = {
                     value = it
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Spacer(modifier = Modifier.height(30.dp))
@@ -239,7 +239,7 @@ private fun ChromaTextFieldPreview() {
                 object : MutableInteractionSource {
                     override val interactions: Flow<Interaction> =
                         flowOf(
-                            FocusInteraction.Focus()
+                            FocusInteraction.Focus(),
                         )
 
                     override suspend fun emit(interaction: Interaction) = Unit
@@ -249,7 +249,7 @@ private fun ChromaTextFieldPreview() {
                 onValueChange = {
                     value = it
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Spacer(modifier = Modifier.height(30.dp))
@@ -265,7 +265,7 @@ private fun ChromaTextFieldPreview() {
                 object : MutableInteractionSource {
                     override val interactions: Flow<Interaction> =
                         flowOf(
-                            FocusInteraction.Focus()
+                            FocusInteraction.Focus(),
                         )
 
                     override suspend fun emit(interaction: Interaction) = Unit
@@ -275,7 +275,7 @@ private fun ChromaTextFieldPreview() {
                 onValueChange = {
                     value = it
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
         }
     }

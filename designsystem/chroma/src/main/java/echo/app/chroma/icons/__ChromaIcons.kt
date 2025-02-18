@@ -13,13 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package echo.app.chromaicons
+package echo.app.chroma.icons
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import echo.app.chromaicons.chromaicons.Home
-import echo.app.chromaicons.chromaicons.Notification
-import echo.app.chromaicons.chromaicons.Person
-import echo.app.chromaicons.chromaicons.Search
 import kotlin.collections.List as ____KtList
 
 object ChromaIcons

@@ -25,7 +25,7 @@ class ButtonColors(
     val containerColor: Color,
     val contentColor: Color,
     val disabledContainerColor: Color,
-    val disabledContentColor: Color
+    val disabledContentColor: Color,
 )
 
 object ChromaButtonColors {
@@ -34,13 +34,13 @@ object ChromaButtonColors {
         containerColor: Color = ChromaTheme.colors.buttonPrimaryBg,
         contentColor: Color = ChromaTheme.colors.buttonPrimaryFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgDisabled,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -48,13 +48,13 @@ object ChromaButtonColors {
         containerColor: Color = ChromaTheme.colors.buttonSecondaryBg,
         contentColor: Color = ChromaTheme.colors.buttonSecondaryFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -62,13 +62,13 @@ object ChromaButtonColors {
         containerColor: Color = ChromaTheme.colors.buttonSecondaryColorBg,
         contentColor: Color = ChromaTheme.colors.buttonSecondaryColorFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -76,13 +76,13 @@ object ChromaButtonColors {
         containerColor: Color = Color.Transparent,
         contentColor: Color = ChromaTheme.colors.buttonTertiaryFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -90,13 +90,13 @@ object ChromaButtonColors {
         containerColor: Color = Color.Transparent,
         contentColor: Color = ChromaTheme.colors.buttonTertiaryColorFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -104,13 +104,13 @@ object ChromaButtonColors {
         containerColor: Color = ChromaTheme.colors.buttonPrimaryErrorBg,
         contentColor: Color = ChromaTheme.colors.fgWhite,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -118,13 +118,13 @@ object ChromaButtonColors {
         containerColor: Color = ChromaTheme.colors.buttonSecondaryErrorBg,
         contentColor: Color = ChromaTheme.colors.buttonSecondaryErrorFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 
     @Composable
@@ -132,12 +132,12 @@ object ChromaButtonColors {
         containerColor: Color = Color.Transparent,
         contentColor: Color = ChromaTheme.colors.buttonTertiaryErrorFg,
         disabledContainerColor: Color = ChromaTheme.colors.bgPrimary,
-        disabledContentColor: Color = ChromaTheme.colors.fgDisabled
+        disabledContentColor: Color = ChromaTheme.colors.fgDisabled,
     ): ButtonColors =
         ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
-            disabledContentColor = disabledContentColor
+            disabledContentColor = disabledContentColor,
         )
 }

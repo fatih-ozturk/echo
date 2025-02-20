@@ -32,14 +32,7 @@ dependencies {
     implementation(libs.arrow.core)
     implementation(libs.timber)
 
-    testImplementation(libs.kotest)
-    testImplementation(libs.robolectric)
-    testImplementation(libs.room.testing)
-    testImplementation(libs.androidx.test.core)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.mockk)
-    testImplementation(libs.junit4)
-    testImplementation(libs.androidx.test.ext)
+    testImplementation(libs.bundles.unitTesting)
 
     androidTestImplementation(libs.kotest)
     androidTestImplementation(libs.robolectric)
@@ -48,5 +41,4 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.junit4)
-    testImplementation("org.slf4j:slf4j-nop:2.0.16")
 }

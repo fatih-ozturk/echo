@@ -35,6 +35,7 @@ lottieVersion = "6.6.2"
 paging = "3.3.6"
 room = "2.6.1"
 secrets = "2.0.1"
+slf4jNop = "2.0.16"
 spotless = "7.0.2"
 timberVersion = "5.0.1"
 turbine = "1.2.0"
@@ -104,7 +105,6 @@ androidx-work-testing = { group = "androidx.work", name = "work-testing", versio
 
 # Arrow
 arrow-core = { group = "io.arrow-kt", name = "arrow-core", version.ref = "arrow" }
-arrow-core-serialization = { group = "io.arrow-kt", name = "arrow-core-serialization", version.ref = "arrow" }
 arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
 
 # KotlinX
@@ -117,16 +117,14 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 # Testing
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 kotest = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
-kotest-framework-engine = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
-kotest-runner-junit = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
 konsist = { group = "com.lemonappdev", name = "konsist", version.ref = "konsist" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+slf4j-nop = { group = "org.slf4j", name = "slf4j-nop", version.ref = "slf4jNop" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
 mockk-agent = { group = "io.mockk", name = "mockk-agent", version.ref = "mockk" }
 google-testParameterInjector = { group = "com.google.testparameterinjector", name = "test-parameter-injector", version.ref = "testParameterInjector" }
-androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 # Hilt
@@ -170,3 +168,21 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }
 dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "dependencyGuard" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+
+[bundles]
+unitTesting = [
+    "mockk",
+    "mockk-agent",
+    "kotest",
+    "turbine",
+    "junit4",
+    "kotlinx-coroutines-test",
+    "robolectric",
+    "google-testParameterInjector",
+    "slf4j-nop"
+]
+integrationTesting = [
+    "mockk",
+    "mockk-android",
+    "mockk-agent",
+]

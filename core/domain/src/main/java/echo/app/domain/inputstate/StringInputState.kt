@@ -31,4 +31,17 @@ data class StringInputState(
         isValid = false,
         error = error
     )
+
+    override fun update(validationResult: ValidationResult): StringInputState =
+        when (validationResult) {
+            is ValidationResult.Error -> copy(
+                error = validationResult.inputStateError,
+                isValid = false
+            )
+
+            ValidationResult.Success -> copy(
+                error = null,
+                isValid = true
+            )
+        }
 }

@@ -15,12 +15,12 @@
     limitations under the License.
 -->
 <resources>
-    <string name="welcome_domain_empty_error">Domain cannot be empty</string>
-    <string name="welcome_domain_invalid_error">Invalid domain</string>
-    <string name="welcome_domain_unknown_error">Invalid domain</string>
-    <string name="welcome_page_title">Welcome to Echo</string>
-    <string name="welcome_page_description">Log in the mastodon server where you created your account</string>
-    <string name="welcome_server_url_label">Server URL</string>
-    <string name="welcome_server_url_placeholder">androiddev.social</string>
-    <string name="welcome_server_login_button_text">Log in</string>
+    <string name="login_domain_empty_error">Domain cannot be empty</string>
+    <string name="login_domain_invalid_error">Invalid domain</string>
+    <string name="login_domain_unknown_error">Invalid domain</string>
+    <string name="login_page_title">Welcome to Echo</string>
+    <string name="login_page_description">Log in the mastodon server where you created your account</string>
+    <string name="login_server_url_label">Server URL</string>
+    <string name="login_server_url_placeholder">androiddev.social</string>
+    <string name="login_server_login_button_text">Log in</string>
 </resources>

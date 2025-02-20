@@ -13,18 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package echo.app.authentication.domain.usecase
+package echo.app.authentication.presentation.login.mapper
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import echo.app.authentication.domain.model.DomainValidationError
-import echo.app.domain.inputstate.ValidationResult
+import echo.app.authentication.presentation.R
+import echo.app.domain.inputstate.InputStateError
 
-class ValidateDomainUseCase {
-    operator fun invoke(domain: String): ValidationResult {
-        val urlRegex = Regex("^(https?://)?(www\\.)?([\\w-]+\\.)+[\\w-]+/?$")
-        return when {
-            domain.isEmpty() -> ValidationResult.Error(DomainValidationError.EmptyDomain)
-            urlRegex.matches(domain) -> ValidationResult.Success
-            else -> ValidationResult.Error(DomainValidationError.InvalidDomainAddress)
-        }
+@Composable
+fun InputStateError.toErrorMessage(): String {
+    val resources = LocalContext.current.resources
+    return when(this) {
+        DomainValidationError.EmptyDomain -> resources.getString(R.string.login_domain_empty_error)
+        DomainValidationError.InvalidDomainAddress -> resources.getString(R.string.login_domain_invalid_error)
+        else -> resources.getString(R.string.login_domain_unknown_error)
     }
 }

@@ -28,7 +28,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -45,6 +44,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import echo.app.authentication.presentation.R
 import echo.app.authentication.presentation.login.auth.model.LoginActivityResultContract
+import echo.app.authentication.presentation.login.mapper.toErrorMessage
 import echo.app.chroma.component.button.ChromaButtons
 import echo.app.chroma.component.text.ChromaText
 import echo.app.chroma.component.textfield.ChromaTextField
@@ -132,7 +132,7 @@ private fun LoginScreen(
             ChromaText(
                 modifier = Modifier
                     .padding(top = ChromaTheme.spacing.spacing4Xl),
-                text = stringResource(R.string.welcome_page_title),
+                text = stringResource(R.string.login_page_title),
                 textAlign = TextAlign.Center,
                 style = ChromaTheme.typography.displayXs,
                 fontWeight = FontWeight.Bold,
@@ -141,7 +141,7 @@ private fun LoginScreen(
             ChromaText(
                 modifier = Modifier
                     .padding(top = ChromaTheme.spacing.spacingMd),
-                text = stringResource(R.string.welcome_page_description),
+                text = stringResource(R.string.login_page_description),
                 textAlign = TextAlign.Center,
                 style = ChromaTheme.typography.textMd,
                 color = ChromaTheme.colors.textTertiary
@@ -162,15 +162,15 @@ private fun LoginScreen(
                     }
                 ),
                 isError = state.domainInputState.isValid,
-                label = stringResource(R.string.welcome_server_url_label),
-                placeholder = stringResource(R.string.welcome_server_url_placeholder),
-                hint = state.domainInputState.error?.toString()
+                label = stringResource(R.string.login_server_url_label),
+                placeholder = stringResource(R.string.login_server_url_placeholder),
+                hint = state.domainInputState.error?.toErrorMessage()
             )
             ChromaButtons.Primary(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = ChromaTheme.spacing.spacing3Xl),
-                text = stringResource(R.string.welcome_server_login_button_text),
+                text = stringResource(R.string.login_server_login_button_text),
                 onClick = {
                     actions.onLoginClicked()
                 }
@@ -196,7 +196,7 @@ fun LoginScreenDialogs(
             ChromaLoadingDialog()
         }
 
-        else -> Unit
+        null -> Unit
     }
 }
 

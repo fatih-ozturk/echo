@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package echo.app.domain.inputstate
+package echo.app.authentication.domain.model
 
-interface InputState<T> {
-    val value: T
-    val isValid: Boolean
-    val error: InputStateError?
+import echo.app.domain.inputstate.InputStateError
 
-    fun update(value: T): InputState<T>
-    fun update(error: InputStateError): InputState<T>
-    fun update(validationResult: ValidationResult): StringInputState
+sealed interface DomainValidationError : InputStateError {
+    data object InvalidDomainAddress : DomainValidationError
+    data object EmptyDomain : DomainValidationError
 }

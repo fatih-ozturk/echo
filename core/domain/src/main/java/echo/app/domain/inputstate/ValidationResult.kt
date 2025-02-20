@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package echo.app.authentication.domain.model
+package echo.app.domain.inputstate
 
-import echo.app.domain.inputstate.InputStateError
-
-sealed interface UrlValidationError : InputStateError {
-    data object InvalidDomainAddress : UrlValidationError
-    data object EmptyDomain : UrlValidationError
+sealed interface ValidationResult {
+    data object Success : ValidationResult
+    data class Error(val inputStateError: InputStateError) : ValidationResult
 }

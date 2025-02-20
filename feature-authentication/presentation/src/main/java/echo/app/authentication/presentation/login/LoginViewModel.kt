@@ -26,9 +26,10 @@ import echo.app.authentication.presentation.login.auth.model.AuthorizationExcept
 import echo.app.authentication.presentation.login.auth.model.AuthorizationResponse
 import echo.app.core.presentation.BaseViewModel
 import echo.app.domain.inputstate.StringInputState
-import javax.inject.Inject
+import echo.app.domain.inputstate.ValidationResult
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
@@ -83,14 +84,18 @@ class LoginViewModel @Inject constructor(
     private fun onLoginClicked() {
         val validationResult = validateDomainUseCase(domain = currentState.domainInputState.value)
 
-        validationResult.onRight {
-            showDialogLoading()
-            getApplicationCredentials()
-        }.onLeft { error ->
-            setState {
-                copy(
-                    domainInputState = domainInputState.update(error),
-                )
+        when (validationResult) {
+            is ValidationResult.Error -> {
+                setState {
+                    copy(
+                        domainInputState = domainInputState.update(validationResult)
+                    )
+                }
+            }
+
+            ValidationResult.Success -> {
+                showDialogLoading()
+                getApplicationCredentials()
             }
         }
     }

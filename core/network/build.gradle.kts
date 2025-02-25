@@ -41,5 +41,5 @@ dependencies {
     testImplementation(libs.kotest)
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation("org.slf4j:slf4j-nop:2.0.16")
+    testImplementation("org.slf4j:slf4j-nop:2.0.17")
 }
